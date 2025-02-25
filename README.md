@@ -124,10 +124,6 @@ Based on dual numbers, which extend real numbers with an infinitesimal ε where 
 
 Based on building a computational graph and applying the chain rule recursively. This allows efficient calculation of higher-order derivatives by differentiating the derivative expressions.
 
-## License
-
-This project is available under the MIT License.
-
 ## Future Enhancements
 
 - Support for higher-order derivatives in forward mode
