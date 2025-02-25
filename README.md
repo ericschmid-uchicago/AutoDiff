@@ -111,7 +111,7 @@ The library includes 10 example functions demonstrating various use cases:
 ### Implementation Notes
 
 - Forward mode currently optimized for first derivatives
-- Backward mode supports derivatives of any order via recursive symbolic differentiation
+- Reverse mode supports derivatives of any order by generating new computational graphs for each derivative level
 - Custom implementations for arithmetic, trigonometric, and transcendental functions
 
 ## Mathematical Background
