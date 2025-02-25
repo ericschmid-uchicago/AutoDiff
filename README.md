@@ -8,7 +8,7 @@ Automatic differentiation (AD) is a set of techniques to numerically evaluate th
 
 This implementation features:
 - **Forward mode** differentiation for first derivatives
-- **Backward mode** differentiation for arbitrary-order derivatives
+- **Reverse mode** (backward) differentiation for arbitrary-order derivatives
 - Entirely implemented in pure Idris with no external dependencies
 - Custom data structures to ensure compatibility across Idris versions
 
@@ -100,13 +100,13 @@ The library includes 10 example functions demonstrating various use cases:
 
 - `DList`: Custom list implementation for derivative values
 - `Forward`: Represents a value and its derivatives in forward mode
-- `Expr`: Expression tree for symbolic differentiation in backward mode
+- `Expr`: Expression tree for computational graph representation in reverse mode
 
 ### Core Functions
 
 - `forward_derivative`: Compute nth derivative using forward mode
-- `backward_derivative`: Compute nth derivative using backward mode
-- `gradToExpr`: Convert derivatives to expressions for higher-order differentiation
+- `backward_derivative`: Compute nth derivative using reverse mode
+- `gradToExpr`: Generate new computational graphs for higher-order derivatives
 
 ### Implementation Notes
 
@@ -122,7 +122,16 @@ Based on dual numbers, which extend real numbers with an infinitesimal ε where 
 
 ### Backward Mode
 
-Based on building a computational graph and applying the chain rule recursively. This allows efficient calculation of higher-order derivatives by differentiating the derivative expressions.
+Implements computational graph-based reverse-mode automatic differentiation. The approach:
+1. Constructs a computational graph representing the function evaluation
+2. Computes gradients by backpropagating through this graph
+3. For higher-order derivatives, builds new computational graphs for each derivative level
+
+Unlike traditional symbolic differentiation, this method doesn't generate simplified symbolic formulas, but rather creates executable computation graphs that numerically evaluate the derivatives.
+
+## License
+
+This project currently has no specified license. All rights are reserved by the author. If you intend to use, distribute, or modify this code, please contact the author for permission.
 
 ## Future Enhancements
 
